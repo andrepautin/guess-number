@@ -1,8 +1,12 @@
 "use strict";
 
+const guessedInput = document.getElementById("guess");
+const submitBtn = document.getElementById("submit-guess");
+const playAgainBtn = document.getElementById("play-again");
+
 let magicNum;
-let numGuesses = 0;
 let guessedNum;
+let numGuesses = 0;
 let message;
 let wonGame = false;
 
@@ -13,6 +17,7 @@ let wonGame = false;
  */
 
 function generateMagicNum() {
+  playAgainBtn.style.visibility = "hidden";
   magicNum = Math.floor(Math.random() * 100);
 }
 
@@ -23,8 +28,8 @@ function generateMagicNum() {
  */
 
 function getGuess() {
-  guessedNum = Number(document.getElementById("guess").value);
-  document.getElementById("guess").value = "";
+  guessedNum = Number(guessedInput.value);
+  guessedInput.value = "";
   numGuesses += 1;
   checkGuess();
 }
@@ -72,8 +77,20 @@ function displayMessage(msg) {
 
 function resetGame() {
   // hide input and submit button
-  // show a play again button
+  guessedInput.style.visibility = "hidden";
+  submitBtn.style.visibility = "hidden";
+  playAgainBtn.style.visibility = "visible";
     // play again button will reload page for user to play again
+}
+
+/**
+ * Function playAgain
+ * 
+ * reloads page with new magic number for user to guess again
+ */
+
+function playAgain() {
+  window.location.reload();
 }
 
 generateMagicNum();
