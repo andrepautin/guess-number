@@ -97,4 +97,3 @@ function playAgain() {
 }
 
 generateMagicNum();
-console.log(magicNum);

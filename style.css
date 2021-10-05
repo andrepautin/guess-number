@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(53, 139, 53);
+    text-align: center;
+}
+
+#guess-form {
+    display: inline-block;
+}
+
+#guess {
+    display: block;
+}
+
+#submit-guess {
+    display: block;
+}
+
