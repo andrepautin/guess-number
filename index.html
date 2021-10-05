@@ -12,13 +12,16 @@
         <h1>Guess the Magic Number!</h1>
     </div>
     <div>
-        <label for="guess"></label>
-        <input type="number" id="guess" min="1" max="100">
-        <button onclick="getGuess()" id="submit-guess">Guess!</button>
-        <button onclick="playAgain()" id="play-again">Play Again?</button>
+        <form id="guess-form">
+            <label for="guess"></label>
+            <input type="number" id="guess" min="1" max="100">
+            <button type="submit" id="submit-guess">Guess!</button>
+        </form>
+        <form id="play-again-form">
+            <button type="submit" id="play-again-btn">Play Again?</button>
+        </form>
     </div>
     <div id="message-area">
-
     </div>
 </body>
 <script src="guess.js"></script>

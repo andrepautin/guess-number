@@ -1,8 +1,10 @@
 "use strict";
 
 const guessedInput = document.getElementById("guess");
+const guessForm = document.getElementById("guess-form");
 const submitBtn = document.getElementById("submit-guess");
-const playAgainBtn = document.getElementById("play-again");
+const playAgainBtn = document.getElementById("play-again-btn");
+const playAgainForm = document.getElementById("play-again-form");
 
 let magicNum;
 let guessedNum;
@@ -18,6 +20,8 @@ let wonGame = false;
 
 function generateMagicNum() {
   playAgainBtn.style.visibility = "hidden";
+  guessForm.addEventListener("submit", getGuess);
+  playAgainForm.addEventListener("submit", playAgain);
   magicNum = Math.floor(Math.random() * 100);
 }
 
@@ -27,7 +31,8 @@ function generateMagicNum() {
  * gets the guessed num from user input
  */
 
-function getGuess() {
+function getGuess(evt) {
+  evt.preventDefault();
   guessedNum = Number(guessedInput.value);
   guessedInput.value = "";
   numGuesses += 1;
@@ -76,11 +81,9 @@ function displayMessage(msg) {
  */
 
 function resetGame() {
-  // hide input and submit button
   guessedInput.style.visibility = "hidden";
   submitBtn.style.visibility = "hidden";
   playAgainBtn.style.visibility = "visible";
-    // play again button will reload page for user to play again
 }
 
 /**
